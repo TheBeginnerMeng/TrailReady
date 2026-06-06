@@ -1,0 +1,27 @@
+/**
+ * TrailReady 步履无忧 — 标签工具 WXS 模块
+ * 用于在 WXML 模板中安全地进行数组元素判断
+ * 避免 WXML 表达式 indexOf 的跨版本兼容性问题
+ */
+
+/**
+ * 判断数组中是否包含指定元素（严格相等 ===）
+ * @param {Array}  arr  待检查的数组
+ * @param {*}      item 目标元素
+ * @returns {Boolean}   true=存在 / false=不存在
+ */
+function includes(arr, item) {
+  if (!arr || !arr.length) {
+    return false;
+  }
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] === item) {
+      return true;
+    }
+  }
+  return false;
+}
+
+module.exports = {
+  includes: includes
+};

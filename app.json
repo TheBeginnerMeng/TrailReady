@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "TrailReady 步履无忧",
+    "navigationBarBackgroundColor": "#FBF9F5",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#FBF9F5",
+    "backgroundTextStyle": "dark"
+  },
+  "sitemapLocation": "sitemap.json"
+}

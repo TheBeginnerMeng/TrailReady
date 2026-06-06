@@ -1,0 +1,1370 @@
+/**
+ * TrailReady 步履无忧 — 页面样式（日系山野小清新 · rpx 响应式）
+ */
+
+/* ================================================================ */
+/*  容器 & 布局                                                      */
+/* ================================================================ */
+.page-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-primary);
+  overflow: hidden;
+}
+
+.tab-scroll {
+  flex: 1;
+  height: 0;
+}
+
+.section-gap {
+  padding: 20rpx 24rpx 40rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+/* ================================================================ */
+/*  标签栏                                                           */
+/* ================================================================ */
+.tab-bar {
+  display: flex;
+  flex-shrink: 0;
+  background: var(--bg-card);
+  border-bottom: 1rpx solid var(--border-subtle);
+  padding: 8rpx 16rpx;
+  gap: 8rpx;
+  backdrop-filter: blur(20rpx);
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 28rpx;
+  color: var(--text-secondary);
+  border-radius: 20rpx;
+  transition: all 0.2s;
+  position: relative;
+  font-weight: 500;
+}
+
+.tab:active {
+  background: var(--bg-item);
+}
+
+.tab-active {
+  color: var(--text-accent);
+  font-weight: 700;
+  background: var(--accent-bg);
+}
+
+.tab-count {
+  display: inline-block;
+  margin-left: 8rpx;
+  background: var(--border-accent);
+  color: var(--text-accent);
+  font-size: 22rpx;
+  padding: 2rpx 12rpx;
+  border-radius: 20rpx;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+/* ================================================================ */
+/*  卡片头部                                                         */
+/* ================================================================ */
+.card-head {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  margin-bottom: 20rpx;
+}
+
+.card-head-icon {
+  font-size: 32rpx;
+}
+
+.card-head-label {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* ================================================================ */
+/*  日期 & 天数控制                                                   */
+/* ================================================================ */
+.date-row {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  margin-bottom: 16rpx;
+}
+
+.date-picker-btn {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  background: var(--bg-input);
+  border: 1rpx solid var(--border-mid);
+  border-radius: 20rpx;
+  padding: 16rpx 24rpx;
+  font-size: 28rpx;
+  color: var(--text-primary);
+}
+
+.arrow-down {
+  font-size: 22rpx;
+  color: var(--text-secondary);
+}
+
+.date-sep {
+  color: var(--text-muted);
+  font-size: 28rpx;
+}
+
+.days-control {
+  display: flex;
+  align-items: center;
+  gap: 6rpx;
+}
+
+.days-btn {
+  width: 52rpx;
+  height: 52rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-input);
+  border: 1rpx solid var(--border-mid);
+  border-radius: 20rpx;
+  font-size: 32rpx;
+  color: var(--text-primary);
+  font-weight: 700;
+  transition: all 0.15s;
+}
+
+.days-btn:active {
+  background: var(--accent-bg);
+}
+
+.days-btn-disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.days-input {
+  width: 80rpx;
+  height: 52rpx;
+  text-align: center;
+  background: var(--bg-input);
+  border: 1rpx solid var(--border-mid);
+  border-radius: 20rpx;
+  font-size: 28rpx;
+  font-weight: 700;
+  color: var(--text-accent);
+  font-family: 'Menlo', 'Courier New', monospace;
+}
+
+.days-unit {
+  font-size: 24rpx;
+  color: var(--text-secondary);
+  margin-left: 4rpx;
+}
+
+.date-range-hint {
+  font-size: 22rpx;
+  color: var(--text-secondary);
+  background: var(--bg-card-hover);
+  border-radius: 20rpx;
+  padding: 12rpx 20rpx;
+}
+
+/* 预报范围提示 — 机能风灰色微文案 */
+.forecast-hint {
+  font-size: 22rpx;
+  color: var(--text-muted);
+  padding: 10rpx 20rpx;
+  margin-top: 6rpx;
+  border-radius: 20rpx;
+  background: var(--accent-bg);
+  border-left: 2rpx solid var(--border-divider);
+  line-height: 1.6;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+/* 超出预报范围 → 警示橙色平滑过渡 */
+.forecast-hint-warn {
+  color: var(--text-accent);
+  border-left-color: var(--bg-tag-sel);
+  background: var(--accent-bg);
+}
+
+/* 超出范围警告卡片 */
+.forecast-warning {
+  font-size: 22rpx;
+  color: var(--text-accent-light);
+  padding: 12rpx 20rpx;
+  margin-top: 4rpx;
+  border-radius: 20rpx;
+  background: var(--accent-bg);
+  border: 1rpx solid var(--accent-bg-deep);
+  line-height: 1.6;
+  animation: warnFadeIn 0.3s ease-out;
+}
+
+@keyframes warnFadeIn {
+  from { opacity: 0; transform: translateY(-6rpx); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ================================================================ */
+/*  按天住宿切换                                                     */
+/* ================================================================ */
+.stay-toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  margin-top: 16rpx;
+  padding-top: 16rpx;
+  border-top: 1rpx solid var(--border-divider);
+}
+
+.stay-toggle-label {
+  font-size: 24rpx;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.stay-toggle-group {
+  flex: 1;
+  display: flex;
+  gap: 12rpx;
+}
+
+.stay-toggle-btn {
+  flex: 1;
+  text-align: center;
+  padding: 14rpx 0;
+  border-radius: 14rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: var(--bg-card-hover);
+  border: 1rpx solid var(--border-subtle);
+  transition: all 0.15s;
+}
+
+.stay-toggle-btn:active {
+  background: var(--bg-input);
+}
+
+.stay-toggle-hotel {
+  color: var(--text-accent-light);
+  background: var(--accent-bg-deep);
+  border-color: var(--accent-bg-deep);
+  box-shadow: 0 0 12rpx var(--accent-bg);
+}
+
+.stay-toggle-camp {
+  color: var(--text-accent-light);
+  background: var(--accent-bg-deep);
+  border-color: var(--accent-bg-deep);
+  box-shadow: 0 0 12rpx var(--accent-bg);
+}
+
+/* ================================================================ */
+/*  智能宿营看板                                                     */
+/* ================================================================ */
+.smart-board {
+  background: linear-gradient(135deg, var(--accent-bg), var(--accent-bg));
+  border: 1rpx solid var(--border-accent);
+  border-radius: 20rpx;
+  padding: 20rpx 24rpx;
+}
+
+.smart-board text {
+  font-size: 24rpx;
+  color: var(--text-accent);
+  line-height: 1.6;
+}
+
+/* ================================================================ */
+/*  住宿模式                                                         */
+/* ================================================================ */
+.lodge-grid {
+  display: flex;
+  gap: 16rpx;
+  margin-bottom: 16rpx;
+}
+
+.lodge-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12rpx;
+  padding: 24rpx 16rpx;
+  border-radius: 20rpx;
+  border: 1rpx solid var(--border-subtle);
+  background: var(--bg-card-hover);
+  transition: all 0.2s;
+}
+
+.lodge-btn:active {
+  background: var(--bg-input);
+}
+
+.lodge-btn-hotel {
+  border-color: var(--border-active);
+  background: var(--accent-bg);
+  box-shadow: 0 0 20rpx var(--accent-bg);
+}
+
+.lodge-btn-camp {
+  border-color: var(--border-active);
+  background: var(--accent-bg);
+  box-shadow: 0 0 20rpx var(--accent-bg);
+}
+
+.lodge-icon {
+  font-size: 44rpx;
+}
+
+.lodge-label {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.lodge-desc {
+  font-size: 20rpx;
+  color: var(--text-secondary);
+}
+
+.lodge-hint {
+  font-size: 22rpx;
+  padding: 16rpx 20rpx;
+  border-radius: 20rpx;
+  line-height: 1.6;
+}
+
+.lodge-hint-hotel {
+  background: var(--accent-bg);
+  border: 1rpx solid var(--accent-bg-deep);
+  color: var(--text-accent-light);
+}
+
+.lodge-hint-camp {
+  background: var(--accent-bg);
+  border: 1rpx solid var(--accent-bg-deep);
+  color: var(--text-accent-light);
+}
+
+/* ================================================================ */
+/*  每日行程卡片                                                     */
+/* ================================================================ */
+.day-card {
+  position: relative;
+}
+
+.day-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  margin-bottom: 20rpx;
+}
+
+.day-badge {
+  background: var(--accent-bg-deep);
+  border: 1rpx solid var(--accent-bg-deep);
+  border-radius: 20rpx;
+  padding: 4rpx 16rpx;
+}
+
+.day-badge text {
+  color: var(--text-accent-light);
+  font-size: 24rpx;
+  font-weight: 700;
+}
+
+.day-date-text {
+  font-size: 24rpx;
+  color: var(--text-secondary);
+}
+
+/* 目的地 */
+.dest-wrap {
+  position: relative;
+  margin-bottom: 16rpx;
+  z-index: 100;
+}
+
+.dest-row {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.dest-pin {
+  font-size: 32rpx;
+  flex-shrink: 0;
+}
+
+.dest-input {
+  flex: 1;
+  background: var(--bg-card);
+  border: 1rpx solid var(--border-input);
+  border-radius: 24rpx;
+  padding: 18rpx 20rpx;
+  font-size: 28rpx;
+  color: var(--text-primary);
+  height: 72rpx;
+}
+
+.dest-input:focus {
+  border-color: var(--border-active);
+}
+
+.dest-placeholder {
+  color: var(--text-muted);
+}
+
+/* ─── 联想下拉透明遮罩（阻断误触）─── */
+.suggestion-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 98;
+  background: transparent;
+}
+
+/* ─── 城市联想下拉浮层 ─── */
+.suggestions-dropdown {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: 999;
+  max-height: 400rpx;
+  overflow-y: auto;
+  background: var(--bg-card);
+  backdrop-filter: blur(30rpx);
+  border: 1rpx solid var(--border-mid);
+  border-top: 1rpx solid var(--border-accent);
+  border-radius: 0 0 16rpx 16rpx;
+  box-shadow: 0 16rpx 40rpx var(--accent-bg-deep);
+  animation: suggestSlideIn 0.15s ease-out;
+  margin-top: 2rpx;
+}
+
+@keyframes suggestSlideIn {
+  from { opacity: 0; transform: translateY(-8rpx); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.suggestions-loading {
+  padding: 24rpx 20rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: var(--text-secondary);
+}
+
+.suggestion-item {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  padding: 20rpx 24rpx;
+  border-bottom: 1rpx solid var(--border-divider);
+  transition: background 0.1s;
+}
+
+.suggestion-item:last-child {
+  border-bottom: none;
+}
+
+.suggestion-item:active {
+  background: var(--accent-bg-deep);
+}
+
+.suggestion-icon {
+  font-size: 28rpx;
+  flex-shrink: 0;
+}
+
+.suggestion-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+}
+
+.suggestion-name {
+  font-size: 26rpx;
+  color: var(--text-primary);
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.suggestion-address {
+  font-size: 20rpx;
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-top: 2rpx;
+}
+
+.suggestion-admin {
+  font-size: 22rpx;
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.suggestion-no-result {
+  padding: 32rpx 20rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: var(--text-muted);
+}
+
+/* 天气状态 */
+.weather-loading {
+  background: var(--blue-bg);
+  border: 1rpx solid var(--blue-bg);
+  border-radius: 20rpx;
+  padding: 16rpx 20rpx;
+  margin-bottom: 16rpx;
+  font-size: 24rpx;
+  color: var(--text-link);
+}
+
+.weather-result {
+  background: var(--accent-bg);
+  border: 1rpx solid var(--accent-bg-deep);
+  border-radius: 20rpx;
+  padding: 16rpx 20rpx;
+  margin-bottom: 16rpx;
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  flex-wrap: wrap;
+}
+
+.weather-icon {
+  font-size: 36rpx;
+}
+
+.weather-text {
+  font-size: 26rpx;
+  color: var(--text-accent-light);
+  font-weight: 600;
+}
+
+.weather-tags {
+  display: flex;
+  gap: 8rpx;
+  flex-wrap: wrap;
+  margin-left: 8rpx;
+}
+
+.weather-tag {
+  font-size: 20rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 8rpx;
+  background: var(--accent-bg);
+  color: var(--text-accent);
+  border: 1rpx solid var(--border-accent);
+}
+
+.weather-idle {
+  background: var(--accent-bg);
+  border-radius: 20rpx;
+  padding: 16rpx 20rpx;
+  margin-bottom: 16rpx;
+  font-size: 24rpx;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* 天气预设选择器 */
+.preset-picker {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+  background: var(--bg-item);
+  border: 1rpx solid var(--border-subtle);
+  border-radius: 20rpx;
+  padding: 18rpx 20rpx;
+}
+
+.preset-icon {
+  font-size: 28rpx;
+}
+
+.preset-label {
+  flex: 1;
+  font-size: 26rpx;
+  color: var(--text-secondary);
+}
+
+.preset-arrow {
+  font-size: 22rpx;
+  color: var(--text-secondary);
+}
+
+.preset-action {
+  font-size: 20rpx;
+  color: var(--text-accent);
+  background: var(--accent-bg);
+  padding: 6rpx 14rpx;
+  border-radius: 20rpx;
+}
+
+/* 实时联动 */
+.live-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10rpx;
+  padding: 24rpx 0;
+}
+
+.live-dot {
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.live-badge text {
+  font-size: 22rpx;
+  color: var(--text-secondary);
+}
+
+/* ================================================================ */
+/*  装备库                                                           */
+/* ================================================================ */
+.gear-add-btn {
+  background: var(--accent);
+  color: var(--text-on-primary);
+  font-weight: 700;
+  font-size: 28rpx;
+  text-align: center;
+  padding: 26rpx 0;
+  border-radius: 20rpx;
+  box-shadow: 0 8rpx 30rpx var(--border-accent);
+  transition: all 0.15s;
+}
+
+.gear-add-btn:active {
+  background: var(--accent-dark);
+  transform: scale(0.98);
+}
+
+/* 空状态 */
+.gear-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80rpx 0;
+  gap: 16rpx;
+}
+
+.gear-empty-icon {
+  font-size: 80rpx;
+}
+
+.gear-empty-text {
+  font-size: 28rpx;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.gear-empty-sub {
+  font-size: 24rpx;
+  color: var(--text-muted);
+}
+
+/* 分组 */
+.gear-group {
+  margin-bottom: 4rpx;
+}
+
+.gear-cat-head {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+  padding: 16rpx 8rpx;
+}
+
+.gear-cat-head:active {
+  background: var(--bg-card-hover);
+  border-radius: 20rpx;
+}
+
+.gear-cat-icon {
+  font-size: 28rpx;
+}
+
+.gear-cat-label {
+  font-size: 24rpx;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 2rpx;
+}
+
+.gear-cat-meta {
+  font-size: 22rpx;
+  color: var(--text-muted);
+  flex: 1;
+}
+
+.gear-cat-arrow {
+  font-size: 20rpx;
+  color: var(--text-muted);
+}
+
+/* 装备项 */
+.gear-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.gear-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-item);
+  border: 1rpx solid var(--border-divider);
+  border-radius: 20rpx;
+  padding: 18rpx 20rpx;
+  transition: all 0.15s;
+}
+
+.gear-item:active {
+  background: var(--bg-card-hover);
+}
+
+.gear-item-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.gear-item-name {
+  font-size: 26rpx;
+  color: var(--text-primary);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gear-item-tags {
+  display: flex;
+  gap: 6rpx;
+  flex-wrap: wrap;
+}
+
+/* 标签通用样式 */
+.tag-badge {
+  font-size: 20rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 6rpx;
+  background: var(--accent-bg-deep);
+  color: var(--text-accent-light);
+  border: 1rpx solid var(--border-accent);
+  margin-right: 4rpx;
+}
+
+.gear-item-meta {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  flex-shrink: 0;
+}
+
+.gear-item-weight {
+  font-size: 24rpx;
+  color: var(--text-accent);
+  font-family: 'Menlo', 'Courier New', monospace;
+  font-weight: 600;
+}
+
+.gear-item-actions {
+  display: flex;
+  gap: 4rpx;
+}
+
+.gear-action-btn {
+  width: 52rpx;
+  height: 52rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14rpx;
+  font-size: 24rpx;
+  transition: all 0.15s;
+}
+
+.gear-action-edit:active {
+  background: var(--border-input);
+}
+
+.gear-action-del:active {
+  background: var(--red-bg);
+}
+
+/* 底部统计 */
+.gear-footer {
+  text-align: center;
+  padding: 24rpx 0;
+  border-top: 1rpx solid var(--border-divider);
+  margin-top: 8rpx;
+}
+
+.gear-footer text {
+  font-size: 22rpx;
+  color: var(--text-muted);
+}
+
+/* ================================================================ */
+/*  打包清单                                                         */
+/* ================================================================ */
+.packing-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 120rpx 48rpx;
+  gap: 20rpx;
+  text-align: center;
+}
+
+.packing-empty-icon {
+  font-size: 80rpx;
+}
+
+.packing-empty-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.packing-empty-desc {
+  font-size: 24rpx;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 480rpx;
+}
+
+/* 摘要行 */
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12rpx 0;
+}
+
+.summary-row + .summary-row {
+  border-top: 1rpx solid var(--border-divider);
+}
+
+.summary-label {
+  font-size: 26rpx;
+  color: var(--text-secondary);
+}
+
+.summary-value {
+  font-size: 26rpx;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* 仪表盘 */
+.dashboard-grid {
+  display: flex;
+  gap: 16rpx;
+}
+
+.dash-item {
+  flex: 1;
+  text-align: center;
+  padding: 28rpx 16rpx;
+  border-radius: 20rpx;
+  background: var(--bg-card-hover);
+  border: 1rpx solid var(--border-divider);
+}
+
+.dash-num {
+  display: block;
+  font-size: 36rpx;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 8rpx;
+  font-family: 'Menlo', 'Courier New', monospace;
+}
+
+.dash-num.accent {
+  color: var(--text-accent);
+}
+
+.dash-label {
+  font-size: 22rpx;
+  color: var(--text-secondary);
+}
+
+/* 气候挑战 */
+.climate-card {
+  border-color: var(--blue-bg);
+}
+
+.climate-item {
+  font-size: 24rpx;
+  color: var(--text-link);
+  padding: 12rpx 0;
+  line-height: 1.5;
+}
+
+.climate-item + .climate-item {
+  border-top: 1rpx solid var(--blue-bg);
+}
+
+/* 警告 */
+.warnings-card {
+  background: var(--warning-bg);
+  border: 1rpx solid var(--warning-border);
+  border-radius: 24rpx;
+  padding: 28rpx;
+}
+
+.warnings-card .card-head-label {
+  color: var(--text-primary);
+}
+
+.warning-item {
+  font-size: 24rpx;
+  color: var(--text-primary);
+  padding: 12rpx 0;
+  line-height: 1.5;
+}
+
+.warning-item + .warning-item {
+  border-top: 1rpx solid var(--warning-divider);
+}
+
+/* 提示 */
+.info-card {
+  border-color: var(--accent-bg-deep);
+}
+
+.info-item {
+  font-size: 24rpx;
+  color: var(--text-secondary);
+  padding: 12rpx 0;
+  line-height: 1.5;
+}
+
+.info-item + .info-item {
+  border-top: 1rpx solid var(--accent-bg);
+}
+
+/* 进度条 */
+.progress-wrap {
+  padding: 8rpx 0;
+}
+
+.progress-bar {
+  height: 10rpx;
+  background: var(--bg-input);
+  border-radius: 14rpx;
+  overflow: hidden;
+  margin-bottom: 12rpx;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--progress-fill);
+  border-radius: 14rpx;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 22rpx;
+  color: var(--text-secondary);
+}
+
+/* 打包分组 */
+.pack-group {
+  margin-bottom: 4rpx;
+}
+
+.pack-cat-head {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+  padding: 16rpx 8rpx;
+}
+
+.pack-cat-head:active {
+  background: var(--bg-card-hover);
+  border-radius: 20rpx;
+}
+
+.pack-cat-icon {
+  font-size: 28rpx;
+}
+
+.pack-cat-label {
+  font-size: 24rpx;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 2rpx;
+}
+
+.pack-cat-meta {
+  font-size: 22rpx;
+  color: var(--text-muted);
+  flex: 1;
+}
+
+/* 打包项 */
+.pack-items {
+  display: flex;
+  flex-direction: column;
+  gap: 6rpx;
+}
+
+.pack-item {
+  display: flex;
+  align-items: center;
+  gap: 14rpx;
+  background: var(--bg-card-hover);
+  border: 1rpx solid var(--border-divider);
+  border-radius: 20rpx;
+  padding: 18rpx 16rpx;
+  transition: all 0.15s;
+}
+
+.pack-item:active {
+  background: var(--bg-input);
+}
+
+.pack-item-done {
+  opacity: 0.45;
+}
+
+/* 勾选框 */
+.pack-check {
+  width: 44rpx;
+  height: 44rpx;
+  border-radius: 14rpx;
+  border: 2rpx solid var(--border-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 24rpx;
+  color: var(--text-on-primary);
+  transition: all 0.15s;
+}
+
+.pack-check-on {
+  background: var(--accent);
+  border-color: var(--text-accent);
+}
+
+.pack-check:active {
+  border-color: var(--text-accent);
+}
+
+/* 打包项信息 */
+.pack-item-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+}
+
+.pack-item-name {
+  font-size: 26rpx;
+  color: var(--text-primary);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+}
+
+.pack-item-qty {
+  font-size: 22rpx;
+  color: var(--text-accent-light);
+  font-weight: 700;
+}
+
+.pack-item-reason {
+  font-size: 20rpx;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.pack-item-wt {
+  font-size: 24rpx;
+  color: var(--text-accent);
+  font-family: 'Menlo', 'Courier New', monospace;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+/* ================================================================ */
+/*  模态框                                                           */
+/* ================================================================ */
+.modal-mask {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48rpx;
+  background: var(--bg-modal-mask);
+  backdrop-filter: blur(10rpx);
+  opacity: 0;
+  animation: modalFadeIn 0.2s ease-out forwards;
+}
+
+.modal-mask-out {
+  animation: modalFadeOut 0.2s ease-in forwards;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalFadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.modal-panel {
+  width: 100%;
+  max-width: 640rpx;
+  max-height: 85vh;
+  overflow-y: auto;
+  background: var(--bg-card);
+  backdrop-filter: blur(30rpx);
+  border: 1rpx solid var(--border-mid);
+  border-radius: 32rpx;
+  padding: 40rpx;
+  box-shadow: 0 30rpx 80rpx var(--accent-bg-deep);
+  transform: scale(0.95);
+  animation: modalPanelIn 0.2s ease-out forwards;
+}
+
+.modal-panel-out {
+  animation: modalPanelOut 0.2s ease-in forwards;
+}
+
+@keyframes modalPanelIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes modalPanelOut {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(0.95); opacity: 0; }
+}
+
+/* 模态框头部 */
+.modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32rpx;
+}
+
+.modal-title {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.modal-close {
+  width: 56rpx;
+  height: 56rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20rpx;
+  font-size: 28rpx;
+  color: var(--text-secondary);
+  transition: all 0.15s;
+}
+
+.modal-close:active {
+  background: var(--bg-input);
+  color: var(--text-primary);
+}
+
+/* 表单 */
+.form-group {
+  margin-bottom: 24rpx;
+}
+
+.form-label {
+  display: block;
+  font-size: 24rpx;
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-bottom: 12rpx;
+}
+
+.form-required {
+  color: var(--text-accent);
+}
+
+.form-input {
+  width: 100%;
+  height: 80rpx;
+  background: var(--bg-input);
+  border: 1rpx solid var(--border-input);
+  border-radius: 14rpx;
+  padding: 0 24rpx;
+  font-size: 28rpx;
+  color: var(--text-primary);
+  box-sizing: border-box;
+}
+
+.form-input:focus {
+  border-color: var(--border-active);
+}
+
+.form-placeholder {
+  color: var(--text-muted);
+}
+
+.form-row {
+  display: flex;
+  gap: 16rpx;
+}
+
+.form-picker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80rpx;
+  background: var(--bg-input);
+  border: 1rpx solid var(--border-input);
+  border-radius: 14rpx;
+  padding: 0 24rpx;
+  font-size: 28rpx;
+  color: var(--text-primary);
+  box-sizing: border-box;
+}
+
+.form-picker-arrow {
+  font-size: 20rpx;
+  color: var(--text-secondary);
+}
+
+.form-weight-wrap {
+  position: relative;
+}
+
+.form-input-wt {
+  padding-right: 56rpx;
+}
+
+.form-wt-unit {
+  position: absolute;
+  right: 24rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 22rpx;
+  color: var(--text-secondary);
+}
+
+/* 标签网格 */
+.form-tags-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10rpx;
+}
+
+.form-tag {
+  padding: 10rpx 18rpx;
+  border-radius: 14rpx;
+  font-size: 22rpx;
+  color: var(--text-secondary);
+  background: var(--bg-item);
+  border: 1rpx solid var(--border-subtle);
+  transition: all 0.15s;
+}
+
+.form-tag:active {
+  background: var(--border-input);
+}
+
+/* 选中态 — 醒目安全橙 */
+.form-tag-sel {
+  color: var(--text-on-primary);
+  background: var(--bg-tag-sel);
+  border-color: var(--border-accent-strong);
+  box-shadow: 0 0 16rpx var(--accent-bg-deep);
+}
+
+/* 选中标签内部的文字，确保跨真机颜色一致 */
+.form-tag-sel-text {
+  color: var(--text-on-primary);
+}
+
+/* 选中态按下时保持橙色高亮，不被 :active 的白底覆盖 */
+.form-tag-sel:active {
+  background: var(--border-active);
+}
+
+/* 错误 */
+.form-error {
+  background: var(--red-bg);
+  border: 1rpx solid var(--red-bg);
+  border-radius: 20rpx;
+  padding: 14rpx 20rpx;
+  margin-bottom: 24rpx;
+}
+
+.form-error text {
+  font-size: 24rpx;
+  color: var(--text-error);
+}
+
+/* 按钮行 */
+.form-actions {
+  display: flex;
+  gap: 16rpx;
+  margin-top: 8rpx;
+}

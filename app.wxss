@@ -1,0 +1,274 @@
+/**
+ * TrailReady 步履无忧 — 全局样式（双主题：暗黑机甲风 / 日系山野小清新）
+ */
+
+/* ================================================================ */
+/*  日系山野小清新（默认主题）                                        */
+/* ================================================================ */
+.theme-nature {
+  /* 背景层级 */
+  --bg-primary:       #FBF9F5;
+  --bg-secondary:     #FFFFFF;
+  --bg-card:          #FFFFFF;
+  --bg-card-hover:    #F7F5F0;
+  --bg-input:         #E8E3DB;
+  --bg-item:          #F1F4EE;
+  --bg-tag:           #F1F4EE;
+  --bg-tag-sel:       rgba(95, 141, 78, 0.35);
+  --bg-modal-mask:    rgba(58, 63, 53, 0.40);
+  --bg-progress:      #E8E3DB;
+  --bg-section:       #F3F0E8;
+  --bg-lodge:         #F7F5F0;
+
+  /* 文字层级 */
+  --text-primary:     #3A3F35;
+  --text-secondary:   #8A9083;
+  --text-muted:       #B5BCAE;
+  --text-on-primary:  #FFFFFF;
+  --text-on-tag-sel:  #FFFFFF;
+  --text-accent:      #5F8D4E;
+  --text-accent-light:#7A9D54;
+  --text-link:        #6B9FC4;
+  --text-error:       #E05A5A;
+  --text-warning:     #D4A843;
+
+  /* 主色调 */
+  --accent:           #5F8D4E;
+  --accent-dark:      #4A7040;
+  --accent-light:     #7A9D54;
+  --accent-bg:        rgba(95, 141, 78, 0.10);
+  --accent-bg-deep:   rgba(95, 141, 78, 0.12);
+
+  /* 语义色 */
+  --green:            #5F8D4E;
+  --green-bg:         rgba(95, 141, 78, 0.10);
+  --red:              #D94F4F;
+  --red-bg:           rgba(217, 79, 79, 0.10);
+  --yellow:           #EED48F;
+  --yellow-bg:        rgba(238, 212, 143, 0.25);
+  --blue:             #6B9FC4;
+  --blue-bg:          rgba(107, 159, 196, 0.10);
+
+  /* 警告/高亮 */
+  --warning-bg:       #FBF4C4;
+  --warning-text:     #3A3F35;
+  --warning-border:   rgba(238, 212, 143, 0.50);
+  --warning-divider:  rgba(238, 212, 143, 0.30);
+
+  /* 边框 */
+  --border-subtle:    #E8E3DB;
+  --border-mid:       #D9D2C9;
+  --border-input:     #E1E8DB;
+  --border-active:    rgba(95, 141, 78, 0.40);
+  --border-accent-strong: rgba(95, 141, 78, 0.60);
+  --border-divider:   #F1F4EE;
+  --border-accent:    rgba(95, 141, 78, 0.20);
+
+  /* 投影 */
+  --shadow-card:      0 2rpx 12rpx rgba(95, 141, 78, 0.04);
+  --shadow-modal:     0 30rpx 80rpx rgba(95, 141, 78, 0.12);
+  --shadow-btn:       0 4rpx 16rpx rgba(95, 141, 78, 0.20);
+  --shadow-lg:        0 8rpx 30rpx rgba(95, 141, 78, 0.20);
+
+  /* 进度条 */
+  --progress-fill:    linear-gradient(90deg, #5F8D4E, #7A9D54);
+
+  /* 拨动开关 */
+  --toggle-bg:        #E8E3DB;
+  --toggle-knob:      #FFFFFF;
+}
+
+/* ================================================================ */
+/*  暗黑机甲风                                                        */
+/* ================================================================ */
+.theme-dark {
+  /* 背景层级 */
+  --bg-primary:       #121212;
+  --bg-secondary:     #1a1a2e;
+  --bg-card:          rgba(255, 255, 255, 0.05);
+  --bg-card-hover:    rgba(255, 255, 255, 0.08);
+  --bg-input:         rgba(255, 255, 255, 0.06);
+  --bg-item:          rgba(255, 255, 255, 0.04);
+  --bg-tag:           rgba(255, 255, 255, 0.06);
+  --bg-tag-sel:       rgba(0, 255, 204, 0.20);
+  --bg-modal-mask:    rgba(0, 0, 0, 0.65);
+  --bg-progress:      rgba(255, 255, 255, 0.08);
+  --bg-section:       #16213e;
+  --bg-lodge:         rgba(255, 255, 255, 0.04);
+
+  /* 文字层级 */
+  --text-primary:     #e8e4d9;
+  --text-secondary:   #a8a29e;
+  --text-muted:       #6b7280;
+  --text-on-primary:  #000000;
+  --text-on-tag-sel:  #000000;
+  --text-accent:      #00FFCC;
+  --text-accent-light:#00e6b8;
+  --text-link:        #60a5fa;
+  --text-error:       #f87171;
+  --text-warning:     #fbbf24;
+
+  /* 主色调 — 机甲荧光绿 */
+  --accent:           #00FFCC;
+  --accent-dark:      #00c499;
+  --accent-light:     #33ffd6;
+  --accent-bg:        rgba(0, 255, 204, 0.10);
+  --accent-bg-deep:   rgba(0, 255, 204, 0.15);
+
+  /* 语义色 */
+  --green:            #22c55e;
+  --green-bg:         rgba(34, 197, 94, 0.12);
+  --red:              #ef4444;
+  --red-bg:           rgba(239, 68, 68, 0.12);
+  --yellow:           #eab308;
+  --yellow-bg:        rgba(234, 179, 8, 0.12);
+  --blue:             #3b82f6;
+  --blue-bg:          rgba(59, 130, 246, 0.12);
+
+  /* 警告/高亮 */
+  --warning-bg:       rgba(234, 179, 8, 0.15);
+  --warning-text:     #eab308;
+  --warning-border:   rgba(234, 179, 8, 0.30);
+  --warning-divider:  rgba(234, 179, 8, 0.12);
+
+  /* 边框 */
+  --border-subtle:    rgba(255, 255, 255, 0.06);
+  --border-mid:       rgba(255, 255, 255, 0.10);
+  --border-input:     rgba(255, 255, 255, 0.10);
+  --border-active:    rgba(0, 255, 204, 0.40);
+  --border-accent-strong: rgba(0, 255, 204, 0.50);
+  --border-divider:   rgba(255, 255, 255, 0.04);
+  --border-accent:    rgba(0, 255, 204, 0.20);
+
+  /* 投影 — 机甲荧光感 */
+  --shadow-card:      0 4rpx 20rpx rgba(0, 255, 204, 0.06);
+  --shadow-modal:     0 30rpx 80rpx rgba(0, 0, 0, 0.50);
+  --shadow-btn:       0 4rpx 16rpx rgba(0, 255, 204, 0.25);
+  --shadow-lg:        0 8rpx 30rpx rgba(0, 255, 204, 0.18);
+
+  /* 进度条 */
+  --progress-fill:    linear-gradient(90deg, #00FFCC, #00c499);
+
+  /* 拨动开关 */
+  --toggle-bg:        #2a2a3e;
+  --toggle-knob:      #00FFCC;
+}
+
+/* ===== 页面根节点（非主题变量 + 通用样式）===== */
+page {
+  --radius-sm: 12rpx;
+  --radius-md: 16rpx;
+  --radius-lg: 24rpx;
+  --font-xs: 22rpx;
+  --font-sm: 26rpx;
+  --font-md: 30rpx;
+  --font-lg: 34rpx;
+  --font-xl: 40rpx;
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  font-size: var(--font-md);
+  line-height: 1.6;
+  letter-spacing: 0.5rpx;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== 主题容器默认（无主题类时回退到自然）===== */
+.theme-root {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+/* ========== 工具类 ========== */
+.flex-row { display: flex; flex-direction: row; align-items: center; }
+.flex-col { display: flex; flex-direction: column; }
+.flex-1  { flex: 1; }
+.flex-wrap { flex-wrap: wrap; }
+.gap-4   { gap: 8rpx; }
+.gap-8   { gap: 16rpx; }
+.gap-12  { gap: 24rpx; }
+.gap-16  { gap: 32rpx; }
+.justify-between { justify-content: space-between; }
+.justify-center  { justify-content: center; }
+.items-center { align-items: center; }
+.text-center { text-align: center; }
+.truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* 卡片 */
+.glass-card {
+  background: var(--bg-card);
+  border: 1rpx solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 28rpx;
+  box-shadow: var(--shadow-card);
+}
+
+/* 主色按钮 */
+.btn-primary {
+  background: var(--accent);
+  color: var(--text-on-primary);
+  font-weight: 700;
+  border-radius: 20rpx;
+  padding: 24rpx 0;
+  text-align: center;
+  font-size: var(--font-md);
+  border: none;
+  transition: all 0.2s;
+  box-shadow: var(--shadow-btn);
+}
+.btn-primary:active {
+  background: var(--accent-dark);
+  transform: scale(0.98);
+}
+
+/* 次要按钮 */
+.btn-secondary {
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  border: 1rpx solid var(--border-mid);
+  border-radius: 20rpx;
+  padding: 24rpx 0;
+  text-align: center;
+  font-size: var(--font-md);
+}
+.btn-secondary:active {
+  background: var(--bg-card-hover);
+}
+
+/* 徽章 */
+.tag-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4rpx 12rpx;
+  border-radius: 8rpx;
+  font-size: var(--font-xs);
+  border: 1rpx solid;
+  white-space: nowrap;
+  background: var(--accent-bg);
+  color: var(--accent);
+  border-color: var(--border-accent);
+}
+
+/* 主题切换按钮 */
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14rpx 20rpx;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+  font-weight: 600;
+  background: var(--accent-bg);
+  color: var(--accent);
+  border: 1rpx solid var(--border-accent);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.theme-toggle-btn:active {
+  transform: scale(0.95);
+  opacity: 0.8;
+}
+
+/* 隐藏滚动条 */
+::-webkit-scrollbar { display: none; width: 0; height: 0; }
